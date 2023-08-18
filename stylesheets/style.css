@@ -36,6 +36,12 @@ nav{
     border-radius: 10px;
 }
 
+.left-side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 nav img{
     height: 80%;
     width: auto;
@@ -45,11 +51,26 @@ nav button{
     font-size: 1.2rem;
     padding: 0.5rem;
     border-radius: 10px;
-    width: 10vw;
+    width: 5vw;
     color: white;
     background-color: #bd4b4b;
     border: 2px solid #a94545;
     border-bottom: 5px solid #a94545;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.profile {
+    height: calc(2.2rem + 7px);
+    width: calc(2.2rem + 7px);
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #a94545;
+    border-bottom: 5px solid #a94545;
+}
+
+.profile:hover {
+    opacity: 80%;
     cursor: pointer;
 }
 
@@ -107,7 +128,7 @@ nav button{
 }
 
 .mainButtons button:nth-child(2):hover{
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(219, 181, 181);
 }
 
 .institutions {
