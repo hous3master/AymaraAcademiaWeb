@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=DM+Sans');
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Concert One', cursive;
+    font-family: 'DM Sans' ,'Concert One', cursive;
     /*border: 1px solid black;*/
 }
 
@@ -60,7 +60,7 @@ nav button{
     margin: 0 10px;
 }
 
-.profile {
+.profile-picture {
     height: calc(2.2rem + 7px);
     width: calc(2.2rem + 7px);
     object-fit: cover;
@@ -69,7 +69,7 @@ nav button{
     border-bottom: 5px solid #a94545;
 }
 
-.profile:hover {
+.profile-picture:hover {
     opacity: 80%;
     cursor: pointer;
 }
@@ -154,12 +154,10 @@ nav button{
 
 .informationContent {
     margin: 0 auto;
-    width: 70%;
 }
 
 .informationContent div {
     width: 100%;
-    margin: 0 10px;
 }
 
 .informationContent h2{
@@ -174,16 +172,39 @@ nav button{
 }
 
 .slide1, .slide2, .slide3, .slide4{
-    height: 80vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 15%;
+}
+
+.slide1 {
+    background-color: lightyellow;
+}
+
+.slide2 {
+    background-color: lightsalmon;
+}
+
+.slide3 {
+    background-color: lightcoral;
+}
+
+.slide3 {
+    background-color: lightpink;
+}
+
+.slide4 {
+    background-color: lightblue;
 }
 
 .informationContent div img {
-    width: 70%;
+    object-fit: cover;
+    height: 45vh;
+    width: 45vh;
     border-radius: 10px;
-    margin: 0 10px;
+    margin: 0 20px;
     border: 2px solid #a94545;
     border-bottom: 5px solid #a94545;
 }
