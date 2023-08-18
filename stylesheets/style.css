@@ -5,6 +5,13 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Concert One', cursive;
+    /*border: 1px solid black;*/
+}
+
+body {
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
 }
 
 li{
@@ -16,19 +23,25 @@ a{
     color: black;
 }
 
-header{
-    height: 15vh;
+nav{
+    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: lightcyan;
+    border-bottom: 2px solid lightblue;
+    border-radius: 10px;
 }
 
-header img{
-    height: 10vh;
+nav img{
+    height: 80%;
     width: auto;
 }
 
-header button{
+nav button{
     font-size: 1.2rem;
     padding: 0.5rem;
     border-radius: 10px;
@@ -41,7 +54,8 @@ header button{
 }
 
 .mainContent{
-    height: 100vh;
+    margin-top: 10vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,7 +98,7 @@ header button{
     border-bottom: 5px solid #a94545;
 }
 
-.mainButtons button:first-child:hover{
+.mainButtons button:first-child:hover, nav button:hover{
     background-color: #cf5454;
 }
 
@@ -100,8 +114,9 @@ header button{
     display: flex;
     flex-direction: row;
     height: 80px;
-    border-bottom: 2px solid gray;
-    border-top: 2px solid gray;
+    border-bottom: 3px solid lightblue;
+    border-top: 3px solid lightblue;
+    background-color: lightcyan;
     padding: 1rem;
 }
 
@@ -116,13 +131,20 @@ header button{
    height: 100%;
 }
 
-.informationContent h2{
-    margin-top: 1rem;
-    text-align: center;
+.informationContent {
+    margin: 0 auto;
+    width: 70%;
 }
 
-.informationContent p{
+.informationContent div {
+    width: 100%;
+    margin: 0 10px;
+}
+
+.informationContent h2{
     text-align: center;
+    margin-bottom: 1rem;
+    font-size: 40px;
 }
 
 .informationContent li{
@@ -135,7 +157,14 @@ header button{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10rem;
+}
+
+.informationContent div img {
+    width: 70%;
+    border-radius: 10px;
+    margin: 0 10px;
+    border: 2px solid #a94545;
+    border-bottom: 5px solid #a94545;
 }
 
 
@@ -143,7 +172,8 @@ footer{
     border-top: 1px solid var(--border);
     align-items: center;
     justify-content: center;
-    
+    width: 100%;
+    background-color: #a94545;
 }
 
 .title{
