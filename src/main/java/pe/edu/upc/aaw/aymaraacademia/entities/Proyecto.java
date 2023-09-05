@@ -1,6 +1,6 @@
 package pe.edu.upc.aaw.aymaraacademia.entities;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
