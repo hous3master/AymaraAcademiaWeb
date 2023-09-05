@@ -5,9 +5,10 @@ import pe.edu.upc.aaw.aymaraacademia.entities.Proyecto;
 import java.util.List;
 
 public interface IProyectoService {
-    public void insert(Proyecto proyecto);
-    List<Proyecto> list();
-    public void delete(int ID);
-    public void update(Proyecto proyecto);
-    public Proyecto listID(int ID);
+    void insert(Proyecto proyecto); // Add an item to table
+
+    void delete(int idProyecto); // Delete an item by ID on table
+
+    Proyecto listId(int idProyecto); // Retrieve an items by ID from table
+    List<Proyecto> list(); // Retrieve all items from table
 }

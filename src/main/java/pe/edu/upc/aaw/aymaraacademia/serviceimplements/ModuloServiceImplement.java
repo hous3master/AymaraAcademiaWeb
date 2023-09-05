@@ -9,32 +9,30 @@ import pe.edu.upc.aaw.aymaraacademia.serviceinterfaces.IModuloService;
 import java.util.List;
 @Service
 public class ModuloServiceImplement implements IModuloService {
-
     @Autowired
-    private IModuloRepository mR;
+    private IModuloRepository myRepository;
+
+    // Add an item to table
     @Override
     public void insert(Modulo modulo) {
-        mR.save(modulo);
+        myRepository.save(modulo);
     }
 
+    // Delete an item by ID on table
+    @Override
+    public void delete(int idModulo){
+        myRepository.deleteById(idModulo);
+    }
+
+    // Retrieve an items by ID from table
+    @Override
+    public Modulo listId(int idModulo){
+        return myRepository.findById(idModulo).orElse(new Modulo());
+    }
+
+    // Retrieve all items from table
     @Override
     public List<Modulo> list() {
-
-        return mR.findAll();
-    }
-
-    @Override
-    public void delete(int ID) {
-        mR.deleteById(ID);
-    }
-
-    @Override
-    public void update(Modulo modulo) {
-        mR.save(modulo);
-    }
-
-    @Override
-    public Modulo listID(int ID) {
-        return mR.findById(ID).orElse(new Modulo());
+        return myRepository.findAll();
     }
 }

@@ -7,45 +7,50 @@ import jakarta.persistence.*;
 public class Unidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
-    @Column(name = "Nombre", nullable = false, length = 64)
-    private String Nombre;
-    @Column(name = "Descripcion", nullable = false)
-    private String Descripcion;
-    @ManyToOne
-    @JoinColumn(name = "Curso_ID")
-    private Curso curso;
-    public Unidad(){}
+    private int idUnidad;
 
-    public Unidad(int ID, String nombre, String descripcion, Curso curso) {
-        this.ID = ID;
-        Nombre = nombre;
-        Descripcion = descripcion;
+    @Column(name = "nombre", length = 50, nullable = false)
+    private String nombre;
+
+    @Column(name = "descripcion", length = 50, nullable = false)
+    private String descripcion;
+
+    @ManyToOne
+    @JoinColumn(name = "idCurso")
+    private Curso curso;
+
+    public Unidad() {
+    }
+
+    public Unidad(int idUnidad, String nombre, String descripcion, Curso curso) {
+        this.idUnidad = idUnidad;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
         this.curso = curso;
     }
 
-    public int getID() {
-        return ID;
+    public int getIdUnidad() {
+        return idUnidad;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setIdUnidad(int idUnidad) {
+        this.idUnidad = idUnidad;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
 
     public Curso getCurso() {

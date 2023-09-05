@@ -8,35 +8,38 @@ import jakarta.persistence.*;
 public class Pregunta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
-    @Column(name = "Pregunta", nullable = false)
-    private String Pregunta;
+    private int idPregunta;
+
+    @Column(name = "descripcion", length = 255, nullable = false)
+    private String descripcion;
+
     @ManyToOne
-    @JoinColumn(name = "Quizzes_ID")
+    @JoinColumn(name = "idQuizz")
     private Quizz quizz;
-    public Pregunta(){
+
+    public Pregunta() {
     }
 
-    public Pregunta(int ID, String pregunta, Quizz quizz) {
-        this.ID = ID;
-        Pregunta = pregunta;
+    public Pregunta(int idPregunta, String descripcion, Quizz quizz) {
+        this.idPregunta = idPregunta;
+        this.descripcion = descripcion;
         this.quizz = quizz;
     }
 
-    public int getID() {
-        return ID;
+    public int getIdPregunta() {
+        return idPregunta;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setIdPregunta(int idPregunta) {
+        this.idPregunta = idPregunta;
     }
 
-    public String getPregunta() {
-        return Pregunta;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setPregunta(String pregunta) {
-        Pregunta = pregunta;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Quizz getQuizz() {

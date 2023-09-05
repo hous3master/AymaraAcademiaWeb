@@ -10,30 +10,29 @@ import java.util.List;
 @Service
 public class LecturaServiceImplement implements ILecturaService {
     @Autowired
-    private ILecturaRepository lR;
+    private ILecturaRepository myRepository;
 
+    // Add an item to table
     @Override
     public void insert(Lectura lectura) {
-        lR.save(lectura);
+        myRepository.save(lectura);
     }
 
+    // Delete an item by ID on table
+    @Override
+    public void delete(int idLectura){
+        myRepository.deleteById(idLectura);
+    }
+
+    // Retrieve an items by ID from table
+    @Override
+    public Lectura listId(int idLectura){
+        return myRepository.findById(idLectura).orElse(new Lectura());
+    }
+
+    // Retrieve all items from table
     @Override
     public List<Lectura> list() {
-        return lR.findAll();
-    }
-
-    @Override
-    public void delete(int ID) {
-        lR.deleteById(ID);
-    }
-
-    @Override
-    public void update(Lectura lectura) {
-        lR.save(lectura);
-    }
-
-    @Override
-    public Lectura listID(int ID) {
-        return lR.findById(ID).orElse(new Lectura());
+        return myRepository.findAll();
     }
 }

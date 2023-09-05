@@ -1,63 +1,67 @@
 package pe.edu.upc.aaw.aymaraacademia.entities;
 
 import jakarta.persistence.*;
-
-
 @Entity
 @Table(name = "Lectura")
 public class Lectura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
-    @Column(name = "Descripcion", nullable = false)
-    private String Descripcion;
-    @Column(name = "Titulo", nullable = false, length = 64)
-    private String Titulo;
-    @Column(name = "Autor", nullable = false, length = 64)
-    private String Autor;
-    @ManyToOne
-    @JoinColumn(name = "Modulo_ID")
-    private Modulo modulo;
-    public Lectura(){}
+    private int idLectura;
 
-    public Lectura(int ID, String descripcion, String titulo, String autor, Modulo modulo) {
-        this.ID = ID;
-        Descripcion = descripcion;
-        Titulo = titulo;
-        Autor = autor;
+    @Column(name = "descripcion", length = 255, nullable = false)
+    private String descripcion;
+
+    @Column(name = "titulo", length = 64, nullable = false)
+    private String titulo;
+
+    @Column(name = "autor", length = 64, nullable = false)
+    private String autor;
+
+    @ManyToOne
+    @JoinColumn(name = "idModulo")
+    private Modulo modulo;
+
+    public Lectura() {
+    }
+
+    public Lectura(int idLectura, String descripcion, String titulo, String autor, Modulo modulo) {
+        this.idLectura = idLectura;
+        this.descripcion = descripcion;
+        this.titulo = titulo;
+        this.autor = autor;
         this.modulo = modulo;
     }
 
-    public int getID() {
-        return ID;
+    public int getIdLectura() {
+        return idLectura;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setIdLectura(int idLectura) {
+        this.idLectura = idLectura;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
 
     public String getTitulo() {
-        return Titulo;
+        return titulo;
     }
 
     public void setTitulo(String titulo) {
-        Titulo = titulo;
+        this.titulo = titulo;
     }
 
     public String getAutor() {
-        return Autor;
+        return autor;
     }
 
     public void setAutor(String autor) {
-        Autor = autor;
+        this.autor = autor;
     }
 
     public Modulo getModulo() {

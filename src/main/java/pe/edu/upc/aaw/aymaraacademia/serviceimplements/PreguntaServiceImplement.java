@@ -10,31 +10,29 @@ import java.util.List;
 @Service
 public class PreguntaServiceImplement implements IPreguntaService {
     @Autowired
-    private IPreguntaRepository pR;
+    private IPreguntaRepository myRepository;
+
+    // Add an item to table
     @Override
-    public void insert(Pregunta pregunta) {
-        pR.save(pregunta);
+    public void insert(Pregunta modulo) {
+        myRepository.save(modulo);
     }
 
+    // Delete an item by ID on table
+    @Override
+    public void delete(int idPregunta){
+        myRepository.deleteById(idPregunta);
+    }
+
+    // Retrieve an items by ID from table
+    @Override
+    public Pregunta listId(int idPregunta){
+        return myRepository.findById(idPregunta).orElse(new Pregunta());
+    }
+
+    // Retrieve all items from table
     @Override
     public List<Pregunta> list() {
-
-        return pR.findAll();
+        return myRepository.findAll();
     }
-
-    @Override
-    public void delete(int ID) {
-        pR.deleteById(ID);
-    }
-
-    @Override
-    public void update(Pregunta pregunta) {
-        pR.save(pregunta);
-    }
-
-    @Override
-    public Pregunta listID(int ID) {
-        return pR.findById(ID).orElse(new Pregunta());
-    }
-
 }

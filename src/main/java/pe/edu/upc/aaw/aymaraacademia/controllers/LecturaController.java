@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping
+@RequestMapping("/lectura")
 public class LecturaController {
     @Autowired
     private ILecturaService myService;
@@ -31,7 +31,7 @@ public class LecturaController {
     @GetMapping("/{id}")
     public LecturaDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
-        LecturaDTO myItem = m.map(myService.listID(id), LecturaDTO.class);
+        LecturaDTO myItem = m.map(myService.listId(id), LecturaDTO.class);
         return myItem;
     }
 

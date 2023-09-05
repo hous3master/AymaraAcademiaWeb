@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping
+@RequestMapping("/video")
 public class VideoController {
     @Autowired
     private IVideoService myService;
@@ -31,7 +31,7 @@ public class VideoController {
     @GetMapping("/{id}")
     public VideoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
-        VideoDTO myItem = m.map(myService.listID(id), VideoDTO.class);
+        VideoDTO myItem = m.map(myService.listId(id), VideoDTO.class);
         return myItem;
     }
 

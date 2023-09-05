@@ -10,32 +10,29 @@ import java.util.List;
 @Service
 public class CursoServiceImplement implements ICursoService {
     @Autowired
-    private ICursoRepository cR;
+    private ICursoRepository myRepository;
 
+    // Add an item to table
     @Override
     public void insert(Curso curso) {
-        cR.save(curso);
+        myRepository.save(curso);
     }
 
+    // Delete an item by ID on table
+    @Override
+    public void delete(int idCurso){
+        myRepository.deleteById(idCurso);
+    }
+
+    // Retrieve an items by ID from table
+    @Override
+    public Curso listId(int idCurso){
+        return myRepository.findById(idCurso).orElse(new Curso());
+    }
+
+    // Retrieve all items from table
     @Override
     public List<Curso> list() {
-
-        return cR.findAll();
-    }
-
-    @Override
-    public void delete(int ID) {
-        cR.deleteById(ID);
-    }
-
-    @Override
-    public void update(Curso curso) {
-        cR.save(curso);
-    }
-
-    @Override
-    public Curso listID(int ID) {
-
-        return cR.findById(ID).orElse(new Curso());
+        return myRepository.findAll();
     }
 }

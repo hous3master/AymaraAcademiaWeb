@@ -5,11 +5,10 @@ import pe.edu.upc.aaw.aymaraacademia.entities.Alternativa;
 import java.util.List;
 
 public interface IAlternativaService {
+    void insert(Alternativa alternativa); // Add an item to table
 
-    public void insert(Alternativa alternativa);
-    List<Alternativa> list();
-    public void delete(int ID);
-    public void update(Alternativa alternativa);
-    public Alternativa listID(int ID);
+    void delete(int idAlternativa); // Delete an item by ID on table
 
+    Alternativa listId(int idAlternativa); // Retrieve an items by ID from table
+    List<Alternativa> list(); // Retrieve all items from table
 }

@@ -10,29 +10,29 @@ import java.util.List;
 @Service
 public class UnidadServiceImplement implements IUnidadService {
     @Autowired
-    private IUnidadRepository uR;
+    private IUnidadRepository myRepository;
+
+    // Add an item to table
     @Override
     public void insert(Unidad unidad) {
-        uR.save(unidad);
+        myRepository.save(unidad);
     }
 
+    // Delete an item by ID on table
+    @Override
+    public void delete(int idUnidad){
+        myRepository.deleteById(idUnidad);
+    }
+
+    // Retrieve an items by ID from table
+    @Override
+    public Unidad listId(int idUnidad){
+        return myRepository.findById(idUnidad).orElse(new Unidad());
+    }
+
+    // Retrieve all items from table
     @Override
     public List<Unidad> list() {
-        return uR.findAll();
-    }
-
-    @Override
-    public void delete(int ID) {
-        uR.deleteById(ID);
-    }
-
-    @Override
-    public void update(Unidad unidad) {
-        uR.save(unidad);
-    }
-
-    @Override
-    public Unidad listID(int ID) {
-        return uR.findById(ID).orElse(new Unidad());
+        return myRepository.findAll();
     }
 }

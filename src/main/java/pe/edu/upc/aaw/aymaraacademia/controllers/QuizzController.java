@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping
+@RequestMapping("/quizz")
 public class QuizzController {
     @Autowired
     private IQuizzService myService;
@@ -31,7 +31,7 @@ public class QuizzController {
     @GetMapping("/{id}")
     public QuizzDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
-        QuizzDTO myItem = m.map(myService.listID(id), QuizzDTO.class);
+        QuizzDTO myItem = m.map(myService.listId(id), QuizzDTO.class);
         return myItem;
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping
+@RequestMapping("/curso")
 public class CursoController {
     @Autowired
     private ICursoService myService;
@@ -31,7 +31,7 @@ public class CursoController {
     @GetMapping("/{id}")
     public CursoDTO listarId(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
-        CursoDTO myItem = m.map(myService.listID(id), CursoDTO.class);
+        CursoDTO myItem = m.map(myService.listId(id), CursoDTO.class);
         return myItem;
     }
 

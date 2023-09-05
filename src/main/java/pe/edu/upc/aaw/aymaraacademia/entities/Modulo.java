@@ -4,45 +4,48 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name="Modulo")
+@Table(name = "Modulo")
 public class Modulo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ID;
-    @Column(name = "Nombre", nullable = false, length = 64)
-    private String Nombre;
-    @Column(name = "Descripcion", nullable = false)
-    private String Descripcion;
+    private int idModulo;
 
-    public Modulo(){
-    }
-    public Modulo(int ID, String nombre, String descripcion) {
-        this.ID = ID;
-        Nombre = nombre;
-        Descripcion = descripcion;
+    @Column(name = "nombre", length = 64, nullable = false)
+    private String nombre;
+
+    @Column(name = "descripcion", length = 255, nullable = false)
+    private String descripcion;
+
+    public Modulo() {
     }
 
-    public int getID() {
-        return ID;
+    public Modulo(int idModulo, String nombre, String descripcion) {
+        this.idModulo = idModulo;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public int getIdModulo() {
+        return idModulo;
+    }
+
+    public void setIdModulo(int idModulo) {
+        this.idModulo = idModulo;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
 }

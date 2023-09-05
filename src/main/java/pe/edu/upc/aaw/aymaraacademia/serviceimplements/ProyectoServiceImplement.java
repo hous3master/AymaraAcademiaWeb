@@ -10,31 +10,29 @@ import java.util.List;
 @Service
 public class ProyectoServiceImplement implements IProyectoService {
     @Autowired
-    private IProyectoRepository pR;
+    private IProyectoRepository myRepository;
+
+    // Add an item to table
     @Override
     public void insert(Proyecto proyecto) {
-        pR.save(proyecto);
+        myRepository.save(proyecto);
     }
 
+    // Delete an item by ID on table
+    @Override
+    public void delete(int idProyecto){
+        myRepository.deleteById(idProyecto);
+    }
+
+    // Retrieve an items by ID from table
+    @Override
+    public Proyecto listId(int idProyecto){
+        return myRepository.findById(idProyecto).orElse(new Proyecto());
+    }
+
+    // Retrieve all items from table
     @Override
     public List<Proyecto> list() {
-
-        return pR.findAll();
+        return myRepository.findAll();
     }
-
-    @Override
-    public void delete(int ID) {
-        pR.deleteById(ID);
-    }
-
-    @Override
-    public void update(Proyecto proyecto) {
-        pR.save(proyecto);
-    }
-
-    @Override
-    public Proyecto listID(int ID) {
-        return pR.findById(ID).orElse(new Proyecto());
-    }
-
 }

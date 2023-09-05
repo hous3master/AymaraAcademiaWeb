@@ -10,32 +10,30 @@ import java.util.List;
 
 @Service
 public class AlternativaServiceImplement implements IAlternativaService {
-
     @Autowired
-    private IAlternativaRepository aR;
+    private IAlternativaRepository myRepository;
 
+    // Add an item to table
     @Override
     public void insert(Alternativa alternativa) {
-        aR.save(alternativa);
+        myRepository.save(alternativa);
     }
 
+    // Delete an item by ID on table
+    @Override
+    public void delete(int idAlternativa){
+        myRepository.deleteById(idAlternativa);
+    }
+
+    // Retrieve an items by ID from table
+    @Override
+    public Alternativa listId(int idAlternativa){
+        return myRepository.findById(idAlternativa).orElse(new Alternativa());
+    }
+
+    // Retrieve all items from table
     @Override
     public List<Alternativa> list() {
-        return aR.findAll();
-    }
-
-    @Override
-    public void delete(int ID) {
-        aR.deleteById(ID);
-    }
-
-    @Override
-    public void update(Alternativa alternativa) {
-        aR.save(alternativa);
-    }
-
-    @Override
-    public Alternativa listID(int ID) {
-        return aR.findById(ID).orElse(new Alternativa());
+        return myRepository.findAll();
     }
 }
